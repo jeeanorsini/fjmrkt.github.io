@@ -13,10 +13,11 @@ header {
     background-color: #000;
     color: #fff;
     padding: 20px 0;
+    position: relative;
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -42,6 +43,19 @@ nav ul li a {
     text-decoration: none;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
 .hero {
     background: url('hero-image.jpg') no-repeat center center/cover;
     height: 400px;
@@ -52,10 +66,6 @@ nav ul li a {
     color: #fff;
 }
 
-.hero-content h1 {
-    font-size: 36px;
-}
-
 .cta-button {
     background-color: #FFD700; /* Amarelo Gold */
     color: #000;
@@ -64,35 +74,5 @@ nav ul li a {
     border-radius: 5px;
 }
 
-.sobre, .servicos, .portfolio, .depoimentos, .cta {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.servico {
-    margin: 20px 0;
-}
-
-.galeria {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.galeria img {
-    width: 30%;
-    margin: 10px;
-}
-
-footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.redes-sociais a {
-    margin: 0 10px;
-    color: #fff;
-    text-decoration: none;
-}
+.sobre, .servicos, .portfolio, .depoimentos {
+    padding: 40px 20px
