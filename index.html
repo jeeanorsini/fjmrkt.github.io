@@ -1,37 +1,98 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FJMRKT - Sua presença digital no próximo nível</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FJMRKT - Sua Presença Digital no Próximo Nível</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-black text-white font-sans">
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-black to-gray-900">
-    <h1 class="text-4xl md:text-6xl font-bold text-yellow-400">FJMRKT</h1>
-    <p class="mt-4 text-xl md:text-2xl max-w-xl">Sua presença digital no próximo nível.</p>
-    <a href="https://wa.me/5521995685141" target="_blank" class="mt-6 px-6 py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-300 transition">Solicite um orçamento</a>
-  </section>  <!-- Serviços -->  <section class="py-20 px-6 bg-white text-black">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-yellow-500 mb-10">O que fazemos</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div><h3 class="font-semibold text-xl">Criação de Sites</h3><p class="text-sm mt-2">Modernos, responsivos e com alta performance.</p></div>
-        <div><h3 class="font-semibold text-xl">Mídias Sociais</h3><p class="text-sm mt-2">Gestão estratégica com conteúdo criativo.</p></div>
-        <div><h3 class="font-semibold text-xl">E-commerces</h3><p class="text-sm mt-2">Lojas online otimizadas para conversão.</p></div>
-        <div><h3 class="font-semibold text-xl">Identidade Visual</h3><p class="text-sm mt-2">Design profissional e memorável.</p></div>
-      </div>
-    </div>
-  </section>  <!-- Depoimentos -->  <section class="py-20 px-6 bg-gray-900">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-yellow-400 mb-10">O que dizem nossos clientes</h2>
-      <p class="italic">“Profissionais incríveis! Meu site ficou sensacional e já comecei a ter retorno.”</p>
-      <p class="mt-2 text-sm">— Cliente Satisfeito</p>
-    </div>
-  </section>  <!-- CTA Final -->  <section class="py-20 px-6 bg-yellow-400 text-black text-center">
-    <h2 class="text-3xl font-bold mb-4">Vamos levar sua marca ao próximo nível?</h2>
-    <a href="https://wa.me/5521995685141" target="_blank" class="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition">Fale conosco agora</a>
-  </section>  <!-- Rodapé -->  <footer class="py-10 px-6 bg-black text-center text-sm text-gray-400">
-    <p>© 2025 FJMRKT - Todos os direitos reservados.</p>
-  </footer>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FJMRKT</div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sua presença digital no próximo nível.</h1>
+            <a href="#contato" class="cta-button">Saiba Mais</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <h2>Quem Somos</h2>
+        <p>A FJMRKT é uma agência digital dedicada a elevar a presença online de marcas e negócios. Com uma abordagem inovadora e estratégica, ajudamos nossos clientes a se destacarem no mundo digital.</p>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="servico">
+            <h3>Criação de Sites</h3>
+            <p>Desenvolvemos sites modernos e responsivos que se adaptam a qualquer dispositivo.</p>
+        </div>
+        <div class="servico">
+            <h3>Gestão de Mídias Sociais</h3>
+            <p>Criamos conteúdo estratégico para engajar seu público e aumentar sua visibilidade.</p>
+        </div>
+        <div class="servico">
+            <h3>Desenvolvimento de E-commerces</h3>
+            <p>Construímos lojas online funcionais e atrativas para impulsionar suas vendas.</p>
+        </div>
+        <div class="servico">
+            <h3>Identidade Visual</h3>
+            <p>Desenvolvemos uma identidade visual impactante e profissional que reflete a essência da sua marca.</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2>Nossos Projetos</h2>
+        <p>Veja alguns dos nossos trabalhos mais recentes.</p>
+        <div class="galeria">
+            <!-- Adicione imagens dos projetos aqui -->
+            <img src="projeto1.jpg" alt="Projeto 1">
+            <img src="projeto2.jpg" alt="Projeto 2">
+            <img src="projeto3.jpg" alt="Projeto 3">
+        </div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+        <h2>O que nossos clientes dizem</h2>
+        <blockquote>"A FJMRKT transformou nossa presença online!" - Cliente A</blockquote>
+        <blockquote>"Profissionais dedicados e criativos!" - Cliente B</blockquote>
+        <blockquote>"Resultados incríveis em pouco tempo!" - Cliente C</blockquote>
+    </section>
+
+    <section class="cta">
+        <h2>Pronto para elevar sua presença digital?</h2>
+        <a href="#contato" class="cta-button">Entre em Contato</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul>
+                <li><a href="#sobre">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="redes-sociais">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p>© 202 3 FJMRKT. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
