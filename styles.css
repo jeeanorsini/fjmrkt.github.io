@@ -1,160 +1,869 @@
-/* Estilo base */
+/* Estilos para o elemento html */
+html {
+  scroll-padding-top: 110px; /* Ajuste para a altura do seu header fixo */
+
+}
+
+/* Estilos para o elemento html e body */
+html, body {
+    height: 100%; /* Garante que a altura total da página seja preenchida */
+    margin: 0; /* Remove as margens padrão do navegador */
+    padding: 0; /* Remove o preenchimento padrão do navegador */
+
+}
+
+/* Estilo geral do body com imagem de fundo fixa, tamanho de cobertura, posição centralizada no topo, sem repetição, cor de fundo preta e cor do texto branca */
 body {
-  padding: 0;
-  box-sizing: border-box;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: #fff;
+    font-family: Arial, sans-serif; /* Define a fonte padrão para o corpo do texto */
+    background-image: url(imagens/wallpaper.jpg); /* Define a imagem de fundo */
+    background-attachment: fixed; /* Mantém a imagem de fundo fixa durante a rolagem */
+    background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
+    background-position: center top; /* Centraliza a imagem horizontalmente e a alinha ao topo verticalmente */
+    background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+    background-color: #000; /* Define uma cor de fundo preta caso a imagem não carregue ou seja transparente */
+    color: #fff; /* Define a cor padrão do texto para branco */
+    position: relative; /* Cria um contexto de posicionamento para elementos filhos absolutos */
+    z-index: 0; /* Define a ordem de empilhamento, garantindo que o conteúdo fique acima de outras camadas com z-index negativo */
+    box-sizing: border-box; /* Garante que o padding não aumente a largura/altura total */
+
 }
 
-/* Header */
+/* Camada escura semi-transparente sobre a imagem de fundo para melhorar o contraste do texto */
+body::before {
+    content: ""; /* Necessário para exibir o pseudo-elemento */
+    position: fixed; /* Fixa a camada na janela do navegador */
+    top: 0; /* Alinha ao topo da janela */
+    left: 0; /* Alinha à esquerda da janela */
+    width: 100%; /* Ocupa toda a largura da janela */
+    height: 100%; /* Ocupa toda a altura da janela */
+    background: rgba(0, 0, 0, 0.3); /* Cor preta com 30% de opacidade */
+    z-index: -1; /* Coloca esta camada atrás do conteúdo do body */
+
+}
+
+/* Cabeçalho fixo com altura mínima, fundo preto com opacidade, preenchimento e alinhamento flexível */
 header {
-  display: flex;
-  min-height: 100px;
-  background: #000000;
-  padding: 10px 20px;
-  position: relative;
-  align-items: center;
-  justify-content: center;
+  margin-top: 0px; /* Remove a margem superior padrão */`
+  padding-right: 20px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-top: 10px; /* Adiciona um preenchimento superior */
+  min-height: 100px; /* Define uma altura mínima para o cabeçalho */
+  background-color: #000000; /* Define a cor de fundo preta com opacidade */
+  position: fixed; /* Fixa o cabeçalho no topo da tela - CORREÇÃO PRINCIPAL */
+  top: 0; /* Garante que o cabeçalho fique no topo */
+  left: 0; /* Garante que o cabeçalho comece na borda esquerda */
+  width: 100%; /* Garante que o cabeçalho ocupe toda a largura */
+  z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo */
+  align-items: center; /* Alinha verticalmente os itens ao centro */
+  justify-content: space-between; /* Distribui o espaço entre os itens (logo e menu) */
+  align-content: center; /* Alinha as linhas de itens flexíveis ao centro (em caso de múltiplas linhas) */
+  display: flex; /* Define o cabeçalho como um container flexível */
+
 }
 
-/* Logo */
+/* Estilos para a logo da empresa */
 .logo {
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
+  display: flex; /* Define a logo como um container flexível para alinhar seus itens */
+  align-items: center; /* Alinha verticalmente os itens da logo (imagem e texto, se houver) ao centro */
+
 }
 
+/* Estilos para a imagem da logo */
 .logo img {
-  height: 90px;
-  width: auto;
+  height: 60px; /* Define a altura da imagem da logo */
+  width: auto; /* Mantém a proporção da largura da imagem */
+
 }
 
-/* Menu de navegação */
+/* Container do menu principal com alinhamento flexível */
 .menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Define o menu como um container flexível */
+  justify-content: center; /* Centraliza os itens do menu horizontalmente */
+  align-items: center; /* Alinha verticalmente os itens do menu ao centro */
+
 }
 
+/* Estilos para o botão de toggle do menu em dispositivos móveis */
 .menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
+  display: none; /* Esconde o botão de toggle por padrão */
+  flex-direction: column; /* Organiza as barras verticalmente */
+  cursor: pointer; /* Altera o cursor para indicar que é clicável */
+  position: fixed; /* Fixa o botão na tela */
+  top: 20px; /* Ajuste a distância do topo conforme necessário */
+  right: 20px; /* Ajuste a distância da direita conforme necessário */
+  z-index: 1001; /* Garante que o botão fique acima do header fixo e do menu */
+
 }
 
+/* Estilos para as barras do botão hamburguer */
 .bar {
-  width: 30px;
-  height: 4px;
-  background-color: #333;
-  margin: 5px 0;
-  transition: 0.3s;
+  width: 30px; /* Define a largura das barras */
+  height: 3px; /* Define a altura das barras */
+  background-color: #fdc600; /* Define a cor das barras para amarelo */
+  margin: 5px 0; /* Adiciona margem superior e inferior entre as barras */
+  transition: 0.3s; /* Adiciona uma transição suave para animações */
+
 }
 
+/* Navegação principal com alinhamento flexível */
 .nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Define a navegação como um container flexível */
+  justify-content: center; /* Centraliza os itens da navegação horizontalmente */
+  align-items: center; /* Alinha verticalmente os itens da navegação ao centro */
+  padding-right: 45px; /* Adiciona preenchimento à direita */
+
 }
 
+/* Estilos para a lista não ordenada da navegação */
 .nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+  list-style: none; /* Remove os marcadores de lista */
+  display: flex; /* Organiza os itens da lista horizontalmente */
+  margin: 0; /* Remove as margens padrão da lista */
+  padding: 0; /* Remove o preenchimento padrão da lista */
+  font-family: fantasy; /* Define a fonte como fantasia */
+
 }
 
+/* Estilos para os links da navegação */
 .nav a {
-  text-decoration: none;
-  font-weight: lighter;
-  font-size: 18px;
-  padding: 8px;
-  color: #fff;
-  position: relative;
+  text-decoration: none; /* Remove o sublinhado dos links */
+  font-size: 18px; /* Define o tamanho da fonte dos links */
+  padding: 8px; /* Adiciona preenchimento ao redor dos links */
+  position: relative; /* Cria um contexto de posicionamento para pseudo-elementos ou animações */
+  margin: 0; /* Remove a margem padrão do parágrafo */
+  letter-spacing: 3px; /* Define o espaçamento entre as letras */
+  font-size: 1rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente */
+  display: inline-block; /* Define o texto como um bloco inline */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+
 }
 
-/* Seção Sobre a FJMRKT */
+.nav a:hover {
+  background: radial-gradient(circle, #ffffff, #ffffff); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente */
+  display: inline-block; /* Define o texto como um bloco inline */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.452); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Seção Sobre com fundo preto, opacidade, preenchimento, margem centralizada e alinhamento de texto */
 .sobre-fjmrkt {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
+  background-color: #000; /* Define a cor de fundo preta */
+  opacity: 84%; /* Define a opacidade da seção */
+  padding: 2rem; /* Define o preenchimento em todas as direções */
+  padding-left: 17px; /* Adiciona preenchimento à esquerda */
+  padding-right: 17px; /* Adiciona preenchimento à direita */
+  margin: auto; /* Centraliza a seção horizontalmente */
+  text-align: center; /* Alinha o texto ao centro */
+  padding-bottom: 0px; /* Adiciona um preenchimento inferior maior */
+  margin-bottom: 0px; /* Remove a margem inferior */
+  padding-top: 127px; /* Adiciona um padding-top para evitar a sobreposição do header fixo */
+
 }
 
+/* Título principal da seção Sobre com espaçamento entre letras e estilo de texto em gradiente */
 .sobre-fjmrkt h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  letter-spacing: 4px; /* Aumenta o espaçamento entre as letras */
+  font-size: 2rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Torna a cor do texto transparente para exibir o fundo gradiente */
+  display: inline-block; /* Permite que o elemento ocupe apenas o espaço necessário e que o background-clip funcione corretamente */
+
 }
 
+/* Parágrafos da seção Sobre com margem inferior, altura da linha e alinhamento justificado */
 .sobre-fjmrkt p {
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; /* Adiciona margem inferior aos parágrafos */
+  line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+  text-align: justify; /* Justifica o texto para preencher a largura disponível */
   line-height: 1.6;
+  font-size: 1rem;
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgb(0 0 0);
+
 }
 
+/* Container grid para organizar texto e imagem na seção Sobre (para telas maiores) */
 .sobre-fjmrkt .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
+  display: grid; /* Define o container como um grid */
+  grid-template-columns: 1fr 1fr; /* Cria duas colunas de igual largura */
+  gap: 2rem; /* Define o espaçamento entre as colunas e linhas do grid */
+  align-items: center; /* Alinha verticalmente os itens do grid ao centro */
+  padding-left: 7px; /* Adiciona preenchimento à esquerda */
+  padding-right: 7px; /* Adiciona preenchimento à direita */
+
 }
 
+/* Estilos para a imagem dentro do grid da seção Sobre */
 .sobre-fjmrkt .grid img {
-  width: 100%;
-  border-radius: 8px;
+  width: 100%; /* Garante que a imagem ocupe toda a largura da sua célula no grid */
+  border-radius: 8px; /* Adiciona bordas arredondadas à imagem */
+  
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+/* Seção Diferenciais com fundo preto, opacidade, posicionamento relativo e alinhamento de texto */
+.diferenciais {
+  background-color: #000; /* Define a cor de fundo preta */
+  opacity: 84%; /* Define a opacidade da seção */
+  position: relative; /* Cria um contexto de posicionamento para pseudo-elementos */
+  padding-top: 10px; /* Adiciona um pequeno preenchimento superior */
+  text-align: center; /* Alinha o texto ao centro */
+  max-width: 2000px; /* Define uma largura máxima para a seção */
+  padding-left: 15px; /* Adiciona preenchimento à esquerda */
+  padding-right: 15px; /* Adiciona preenchimento à direita */
+  padding-bottom: 25px; /* Adiciona preenchimento inferior */
+  
+}
+
+/* Camada de fundo sutil com opacidade para a seção Diferenciais */
+.diferenciais::before {
+  content: ""; /* Necessário para exibir o pseudo-elemento */
+  position: absolute; /* Posiciona o elemento relativamente ao seu ancestral mais próximo posicionado */
+  top: 0; /* Alinha ao topo do elemento pai */
+  left: 0; /* Alinha à esquerda do elemento pai */
+  width: 100%; /* Ocupa toda a largura do elemento pai */
+  height: 100%; /* Ocupa toda a altura do elemento pai */
+  background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+  background-position: center; /* Centraliza a imagem de fundo */
+  background-size: cover; /* Garante que a imagem cubra todo o espaço disponível */
+  opacity: 0.38; /* Define a opacidade da camada de fundo */
+  z-index: -1; /* Coloca esta camada atrás do conteúdo da seção */
+
+}
+
+/* Divisor estilizado para separar seções */
+.divisor {
+  text-align: center; /* Alinha o texto ao centro */
+  margin-top: 10px; /* Adiciona margem superior */
+  margin-bottom: 35px; /* Adiciona margem inferior */
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  box-shadow: 0 0px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra sutil */
+
+}
+
+/* Título estilizado da seção Diferenciais com espaçamento entre letras e estilo de texto em gradiente com sombra */
+.diferenciais .titulo {
+  letter-spacing: 3px; /* Aumenta o espaçamento entre as letras */
+  font-size: 2rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Torna a cor do texto transparente para exibir o fundo gradiente */
+  display: inline-block; /* Permite que o elemento ocupe apenas o espaço necessário e que o background-clip funcione corretamente */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Subtítulo da seção Diferenciais */
+.diferenciais .subtitulo {
+  font-size: 1.2rem; /* Define o tamanho da fonte */
+  margin-bottom: 40px; /* Adiciona margem inferior */
+  color: #333; /* Define a cor do texto para um cinza escuro */
+
+}
+
+/* Grid de cartões com responsividade automática para os diferenciais */
+.grid-diferenciais {
+  display: grid; /* Define o container como um grid */
+  gap: 30px; /* Define o espaçamento entre os itens do grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cria colunas que se ajustam automaticamente com largura mínima de 250px */
+  background-color: transparent; /* Define o fundo como transparente */
+
+}
+
+/* Estilos para os cartões de diferenciais com fundo translúcido, bordas arredondadas, sombra e transição no hover */
+.diferenciais .card {
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  border-radius: 12px; /* Adiciona bordas arredondadas */
+  box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra */
+  padding: 30px 20px; /* Define o preenchimento interno */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave para a propriedade transform */
+  text-align: center; /* Alinha o texto ao centro */
+  color: white; /* Define a cor do texto para branco */
+  margin-bottom: 1rem; /* Adiciona margem inferior */
+  line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+  font-size: 1rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor do texto como transparente */
+  text-shadow: 2px 2px 4px rgb(0 0 0); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Estilo no hover para os cartões, elevando-os levemente */
+.card:hover {
+  transform: translateY(-5px); /* Move o cartão 5px para cima no hover */
+
+}
+
+/* Estilos para a imagem dentro dos cartões de diferenciais */
+.card img {
+  width: 100%; /* Garante que a imagem ocupe toda a largura do container */
+  max-width: 140px; /* Define uma largura máxima para a imagem */
+  height: 140px; /* Define a altura da imagem */
+  object-fit: contain; /* Garante que a imagem caiba dentro do container sem cortar ou distorcer, mantendo a proporção */
+  margin: 0 auto 20px; /* Centraliza a imagem horizontalmente e adiciona margem inferior */
+  display: block; /* Faz com que a margem automática funcione corretamente */
+  color: rgb(215 182 48 / 2%); /* Define uma cor (pode ser redundante dependendo da imagem) */
+
+}
+
+/* Estilos para o título (h3) e parágrafo dentro dos cartões */
+.card h3, .card p {
+  color: #ffffff; /* Define a cor do texto para branco */
+
+}
+
+/* Seção Processo de Desenvolvimento com margem centralizada, alinhamento de texto, fundo preto e opacidade */
+.processo-desenvolvimento {
+  margin: auto; /* Centraliza a seção horizontalmente */
+  margin-top: 0px; /* Remove a margem superior */
+  text-align: center; /* Alinha o texto ao centro */
+  background-color: #000; /* Define a cor de fundo preta */
+  opacity: 84%; /* Define a opacidade da seção */
+  padding-left: 15px; /* Adiciona preenchimento à esquerda */
+  padding-right: 15px; /* Adiciona preenchimento à direita */
+  padding-top: 1px; /* Adiciona preenchimento superior */
+  padding-bottom: 17px; /* Adiciona preenchimento inferior */
+
+}
+
+/* Título da seção Processo de Desenvolvimento com espaçamento entre letras, estilo de texto em gradiente com sombra e preenchimento/margens */
+.processo-desenvolvimento h1 {
+  letter-spacing: 3px; /* Aumenta o espaçamento entre as letras */
+  font-size: 2rem; /* Define o tamanho da fonte */
+  margin-bottom: 2.5rem; /* Adiciona margem inferior */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Torna a cor do texto transparente para exibir o fundo gradiente */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+  padding-top: 17px; /* Adiciona preenchimento superior */
+  padding-bottom: 17px; /* Adiciona preenchimento inferior */
+
+}
+
+/* Container para a imagem do processo de desenvolvimento com preenchimento, bordas arredondadas, fundo translúcido e sombra */
+.container-processo {
+  padding: 25px; /* Define o preenchimento interno */
+  padding-bottom: 50px; /* Adiciona um preenchimento inferior maior */
+  border-radius: 8px; /* Adiciona bordas arredondadas */
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra */
+  z-index: 9999; /* Garante que o container fique acima de outros elementos, se necessário */
+
+}
+
+/* Estilos para a imagem do processo de desenvolvimento */
+.processo-desenvolvimento-img {
+  width: 100%; /* Garante que a imagem ocupe toda a largura do container pai */
+  max-width: 800px; /* Define uma largura máxima para a imagem */
+  height: auto; /* Mantém a proporção da altura da imagem */
+  margin-top: 30px; /* Adiciona margem superior */
+  border-radius: 8px; /* Adiciona bordas arredondadas */
+
+}
+
+/* RESPONSIVO */
+/* Media query para telas com largura máxima de 926px (dispositivos móveis) */
+@media (max-width: 926px) {
+
+  /* Estilos para o menu em dispositivos móveis */
+  .menu {
+    display: flex; /* Exibe os itens do menu em linha */
+    justify-content: flex-end; /* Alinha os itens à direita */
+    align-items: center; /* Centraliza verticalmente */
+  }
+
   .menu-toggle {
-    display: flex;
+    display: flex; /* Ativa o botão hamburguer */
+    flex-direction: column; /* Alinha as barras do botão em coluna */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    position: fixed; /* Fixa o botão na tela */
+    top: 31px; /* Distância do topo */
+    right: 20px; /* Distância da lateral direita */
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+    margin: 0;
+    padding: 10px; /* Espaçamento interno */
   }
 
   .nav {
-    position: absolute;
-    top: 100%;
+    position: absolute; /* Posiciona abaixo do header */
+    top: calc(100% + 2px); /* Distância a partir do topo do header */
     left: 0;
-    width: 100%;
-    background: #fff;
-    flex-direction: column;
-    align-items: center;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    width: 100%; /* Ocupa toda a largura */
+    background-color: #000000; /* Fundo preto */
+    flex-direction: column; /* Itens em coluna */
+    align-items: flex-start; /* Alinha itens à esquerda */
+    max-height: 0; /* Esconde o menu inicialmente */
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa o limite */
+    transition: max-height 0.3s ease; /* Animação para abrir/fechar menu */
+    z-index: 999; /* Fica acima de outros elementos */
+    padding: 0;
+    margin-top: 0;
   }
 
   .nav.open {
-    max-height: 500px;
+    max-height: 500px; /* Altura visível ao abrir */
+    padding-bottom: 10px; /* Espaço inferior */
+    background-color: #000000; /* Mantém o fundo preto */
+    margin-top: -2px; /* Ajuste fino de posicionamento */
   }
 
   .nav ul {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column; /* Lista em coluna */
+    width: 100%; /* Ocupa toda a largura */
+    list-style: none; /* Remove marcadores */
+    padding: 0;
+    margin: 0;
   }
 
   .nav li {
-    display: flex;
-    width: 100%;
-    padding-left: 5px;
-    text-align: center;
-    border-top: 1px solid #f9f6f600;
-    background-color: #f8cb11;
-    align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    width: 100%; /* Cada item ocupa toda a largura */
+    text-align: left; /* Texto alinhado à esquerda */
+    border-bottom: 1px solid #000000; /* Linha separadora */
+    background-color: transparent;
+    padding: 10px 20px; /* Espaçamento interno */
+  }
+
+  .nav li:last-child {
+    border-bottom: none; /* Remove a borda do último item */
   }
 
   .nav a {
-    font-weight: bold;
-    color: #000000;
+    font-weight: normal; /* Texto com peso normal */
+    color: #333; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado */
+    display: block;
+    padding-bottom: 9px; /* Espaço inferior */
+    font-family: fantasy; /* Fonte decorativa */
   }
 
-  .sobre-fjmrkt .grid {
-    grid-template-columns: 1fr;
+  /* Estilos para a seção Sobre em dispositivos móveis */
+  .sobre-fjmrkt {
+    padding-top: 110px; /* Espaço acima da seção (compensa o header fixo) */
+    padding-left: 17px; /* Espaço nas laterais para respiro */
+    padding-right: 17px;
+    padding-bottom: 1px; /* Pequeno espaço abaixo */
   }
+
+  /* Ajusta o layout do grid na seção Sobre para uma única coluna */
+  .sobre-fjmrkt .grid {
+    display: block; /* Empilha os elementos ao invés de usar grid */
+  }
+
+  .sobre-fjmrkt .grid > div {
+    margin-bottom: 2rem; /* Espaço entre os blocos de conteúdo */
+  }
+
+  .sobre-fjmrkt .grid > div:last-child {
+    margin-bottom: 0; /* Remove margem inferior do último bloco */
+  }
+
+  /* Reduz o tamanho máximo da imagem nos cartões em dispositivos móveis */
+  .card img {
+    max-width: 100px; /* Limita a largura */
+    height: auto; /* Mantém proporção */
+  }
+
+  /* Ajustes no grid de projetos para caber melhor em telas pequenas */
+  .projetos .grid-projetos {
+    flex-wrap: wrap; /* Permite quebra de linha entre os projetos */
+    justify-content: center; /* Centraliza os itens */
+  }
+
+  /* Redimensiona imagens dos projetos */
+  .projetos .grid-projetos img {
+    max-width: 90%; /* Reduz a largura máxima */
+    height: auto; /* Mantém proporção */
+    margin-bottom: 20px; /* Espaço entre os projetos */
+  }
+}
+
+/* Responsivo para tablets e dispositivos maiores com largura máxima de 1024px */
+@media (max-width: 1024px) {
+  /* Ajusta o grid de projetos para se adaptar a telas menores */
+  .projetos .grid-projetos {
+    display: grid; /* Define como grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas com largura mínima de 300px que se ajustam automaticamente */
+    gap: 20px; /* Adiciona espaçamento entre as imagens */
+  }
+
+  /* Estilos para as imagens dos projetos em tablets e dispositivos maiores */
+  .projetos .grid-projetos img {
+    max-width: 100%; /* Ocupa toda a largura da célula do grid */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 20px; /* Adiciona margem inferior */
+    background-color: rgb(215 182 48 / 2%); /* Cor de fundo translúcida */
+    box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Adiciona sombra */
+  }
+}
+
+/* Seção Projetos com preenchimento, alinhamento de texto, fundo preto e opacidade */
+.projetos {
+  padding-top: 1px; /* Adiciona preenchimento superior */
+  text-align: center; /* Alinha o texto ao centro */
+  background-color: #000; /* Define a cor de fundo preta */
+  opacity: 84%; /* Define a opacidade da seção */
+  padding-bottom: 40px; /* Adiciona preenchimento inferior */
+
+}
+
+/* Container interno da seção Projetos com preenchimento, margens, bordas arredondadas, alinhamento de texto, fundo translúcido e sombra */
+.projetos .container-projetos {
+  padding-top: 31px; /* Adiciona preenchimento superior */
+  margin-left: 17px; /* Adiciona margem à esquerda */
+  margin-right: 17px; /* Adiciona margem à direita */
+  padding-bottom: 0px; /* Remove o preenchimento inferior */
+  padding-left: 20px; /* Adiciona preenchimento à esquerda */
+  padding-right: 20px; /* Adiciona preenchimento à direita */
+  border-radius: 8px; /* Adiciona bordas arredondadas */
+  text-align: center; /* Alinha o texto ao centro */
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra */
+
+}
+
+/* Título da seção Projetos com espaçamento entre letras, estilo de texto em gradiente com sombra e preenchimento/margens */
+.projetos h1 {
+  letter-spacing: 3px; /* Aumenta o espaçamento entre as letras */
+  font-size: 2rem; /* Define o tamanho da fonte */
+  padding-top: 25px; /* Adiciona preenchimento superior */
+  padding-bottom: 25px; /* Adiciona preenchimento inferior */
+  margin-top: 35px; /* Adiciona margem superior */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Torna a cor do texto transparente para exibir o fundo gradiente */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Grid de imagens dos projetos com layout de colunas responsivo, espaçamento e alinhamento */
+.grid-projetos {
+  display: grid; /* Define como grid */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Cria colunas com largura mínima de 320px que se ajustam automaticamente */
+  gap: 24px; /* Adiciona espaçamento entre as imagens */
+  justify-items: center; /* Centraliza os itens do grid horizontalmente */
+  padding-bottom: 40px; /* Adiciona preenchimento inferior */
+  margin: 0 auto; /* Centraliza o grid horizontalmente */
+  margin-left: 10px; /* Adiciona margem à esquerda */
+  margin-right: 10px; /* Adiciona margem à direita */
+
+}
+
+/* Estilos para as imagens dos projetos com largura, altura, bordas arredondadas, transição e sombra */
+.grid-projetos img {
+  width: 100%; /* Ocupa toda a largura da célula do grid */
+  max-width: 400px; /* Define uma largura máxima para a imagem */
+  height: auto; /* Mantém a proporção */
+  border-radius: 10px; /* Adiciona bordas arredondadas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves para transform e box-shadow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra inicial */
+
+}
+
+/* Estilo no hover para as imagens dos projetos, aumentando a escala e a sombra */
+.grid-projetos img:hover {
+  transform: scale(1.05); /* Aumenta a escala da imagem em 5% */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Aumenta a intensidade da sombra */
+
+}
+
+/* Grid para a seção "Por Que Escolher a FJMarket" com layout de colunas responsivo e espaçamento */
+.grid-why {
+  display: grid; /* Define como grid */
+  gap: 30px; /* Adiciona espaçamento entre os cartões */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cria colunas com largura mínima de 250px que se ajustam automaticamente */
+  background-color: transparent; /* Define o fundo como transparente */
+
+}
+
+/* Estilos para os cartões da seção "Por Que Escolher a FJMarket" com fundo translúcido, bordas arredondadas e sombra */
+.grid-why .card {
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  border-radius: 12px; /* Adiciona bordas arredondadas */
+  box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra */
+  padding: 30px 20px; /* Define o preenchimento interno */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave para a propriedade transform */
+  text-align: center; /* Alinha o texto ao centro */
+  color: white; /* Define a cor do texto para branco */
+
+}
+
+/* Estilos para as imagens dentro dos cartões da seção "Por Que Escolher a FJMarket" com opacidade */
+.grid-why .card img {
+  opacity: 70%; /* Define a opacidade das imagens para 70% */
+
+}
+
+/* Container para a seção de perguntas frequentes com margem centralizada, alinhamento de texto, fundo preto e opacidade */
+.container-faq {
+  margin: auto; /* Centraliza a seção horizontalmente */
+  margin-top: 0px; /* Remove a margem superior */
+  text-align: center; /* Alinha o texto ao centro */
+  background-color: #000; /* Define a cor de fundo preta */
+  opacity: 84%; /* Define a opacidade da seção */
+  padding-left: 15px; /* Adiciona preenchimento à esquerda */
+  padding-right: 15px; /* Adiciona preenchimento à direita */
+  padding-top: 1px; /* Adiciona preenchimento superior */
+  padding-bottom: 10px; /* Adiciona preenchimento inferior */
+
+}
+
+/* Seção de perguntas frequentes com preenchimento, margens, bordas arredondadas, alinhamento de texto, fundo translúcido e sombra */
+.faq-section {
+  padding-top: 40px; /* Adiciona preenchimento superior */
+  padding-bottom: 25px; /* Adiciona preenchimento inferior */
+  text-align: center; /* Alinha o texto ao centro */
+  margin-top: 10px; /* Adiciona margem superior */
+  margin-bottom: 4px; /* Adiciona margem inferior */
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  box-shadow: 0 0px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra sutil */
+
+}
+
+/* Seção de contato com margem centralizada, alinhamento de texto, fundo preto e opacidade */
+.contact-section {
+  margin: auto; /* Centraliza a seção horizontalmente */
+  margin-top: 0px; /* Remove a margem superior */
+  text-align: center; /* Alinha o texto ao centro */
+  background-color: #000; /* Define a cor de fundo preta */
+  opacity: 84%; /* Define a opacidade da seção */
+  padding-left: 17px; /* Adiciona preenchimento à esquerda */
+  padding-right: 15px; /* Adiciona preenchimento à direita */
+  padding-top: 17px; /* Adiciona um pequeno preenchimento superior */
+  padding-bottom: 17px; /* Adiciona preenchimento inferior */
+
+}
+
+/* Título (h2) para as seções com cor amarelada e margem inferior */
+h2 {
+  letter-spacing: 3px; /* Aumenta o espaçamento entre as letras */
+  font-size: 2rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text;  /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor de preenchimento do texto como transparente */
+  display: inline-block; /* Define o texto como um bloco inline */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Item individual da seção de perguntas frequentes com margem inferior */
+.faq-item {
+  margin-bottom: 15px; /* Adiciona margem inferior entre os itens */
+
+}
+
+/* Pergunta da seção de perguntas frequentes com display flex para alinhar o indicador, cursor pointer e margem inferior */
+.faq-question {
+  display: flex; /* Alinha os itens (indicador e texto) horizontalmente */
+  align-items: ; /* Alinhamento padrão (baseline) - precisa ser corrigido para 'center' se desejar alinhamento vertical ao centro */
+  cursor: pointer; /* Altera o cursor para indicar que é clicável */
+  font-size: 20px; /* Define o tamanho da fonte */
+  padding-left: 10px; /* Adiciona preenchimento à esquerda */
+  margin-bottom: 1rem; /* Adiciona margem inferior */
+  line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+  background: radial-gradient(circle, #cabe7b, #d6a528); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor de preenchimento do texto como transparente */
+  text-shadow: 2px 2px 4px rgb(0 0 0); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Estilo do indicador (seta para baixo) antes da pergunta */
+.faq-question::before {
+  content: "►"; /* Adiciona o caractere de seta para baixo */
+  margin-right: 10px; /* Adiciona margem à direita do indicador */
+  color: #f0e68c; /* Define a cor do indicador para amarelo dourado */
+
+}
+
+.faq-question.open::before {
+  content: "▼"; /* Altera o indicador para seta para cima */
+}
+
+/* Resposta da seção de perguntas frequentes inicialmente escondida, com cor cinza, preenchimento à esquerda, alinhamento à esquerda e margens */
+.faq-answer {
+  color: #ccc; /* Define a cor do texto para cinza claro */
+  padding-left: 15px; /* Adiciona preenchimento à esquerda */
+  display: none; /* Inicialmente esconde a resposta */
+  text-align: start; /* Alinha o texto à esquerda */
+  margin-left: 25px; /* Adiciona margem à esquerda */
+  margin-right: 10px; /* Adiciona margem à direita */
+  padding-top: 15px; /* Adiciona preenchimento superior */
+  padding-bottom: 10px; /* Adiciona preenchimento inferior */
+  margin-bottom: 1rem; /* Adiciona margem inferior */
+  line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+  font-size: 1rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #cabe7b, #d6a528); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor de preenchimento do texto como transparente */
+  text-shadow: 2px 2px 4px rgb(0 0 0); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Container para os blocos de contato com layout de colunas responsivo e espaçamento */
+.contact-blocks {
+  display: grid; /* Define como grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas com largura mínima de 300px que se ajustam automaticamente */
+  gap: 20px; /* Adiciona espaçamento entre os blocos */
+  margin-bottom: 50px; /* Adiciona margem inferior */
+
+}
+
+/* Estilos para os blocos de contato com fundo cinza escuro, preenchimento, bordas arredondadas e cor do texto */
+.contact-block {
+  background-color: rgb(215 182 48 / 2%); /* Define uma cor de fundo amarelada com baixa opacidade */
+  border-radius: 12px; /* Adiciona bordas arredondadas */
+  box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Adiciona uma sombra ao bloco */
+  padding: 30px 20px; /* Define o preenchimento interno */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave ao hover */
+  text-align: center; /* Alinha o texto ao centro */
+  color: white; /* Define a cor do texto para branco */
+  margin-bottom: 1rem; /* Adiciona margem inferior */
+  line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+  font-size: 1rem; /* Define o tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent;  /* Define a cor de preenchimento do texto como transparente */
+  text-shadow: 2px 2px 4px rgb(0 0 0); /* Adiciona uma sombra ao texto */
+
+}
+
+/* Título (h3) dentro dos blocos de contato com cor amarelada e margem inferior */
+.contact-block h3 {
+  color: #f0e68c; /* Define a cor do texto para amarelo dourado */
+  margin-top: 0; /* Remove a margem superior padrão */
+  margin-bottom: 10px; /* Adiciona margem inferior */
+
+}
+
+/* Título (h3) dentro dos blocos de contato com cor amarelada e margem inferior */
+.contact-block h3 {
+  color: #f0e68c; /* Define a cor do texto para amarelo dourado */
+  margin-top: 0; /* Remove a margem superior padrão */
+  margin-bottom: 10px; /* Adiciona margem inferior */
+
+}
+
+/* Parágrafos dentro dos blocos de contato */
+.contact-block p {
+  margin-bottom: 10px; /* Adiciona margem inferior */
+
+}
+
+/* Links dentro dos blocos de contato */
+.contact-block a {
+  color: #ccc; /* Define a cor do texto para cinza claro */
+  text-decoration: none; /* Remove o sublinhado */
+
+}
+
+/* Estilo no hover para os links */
+.contact-block a:hover {
+  text-decoration: underline; /* Adiciona sublinhado no hover */
+
+}
+
+/* Estilo para o rodapé com fundo escura, preenchimento, margem centralizada e alinhamento de texto */
+footer {
+  background-color: #000000d0; /* Cor de fundo escura para o rodapé */
+  color: #f0f0f0; /* Cor do texto clara */
+  padding: 10px 0; /* Espaçamento vertical */
+  text-align: center; /* Alinha o texto ao centro */
+  font-size: 0.9em; /* Tamanho da fonte ligeiramente menor */
+
+}
+
+/* Estilo para Copyright */
+.copyright {
+  max-width: 1200px; /* Largura máxima para centralizar o conteúdo em telas maiores */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding-top: 10px; /* Adiciona um pouco de espaçamento nas laterais */
+  padding-bottom: 10px; /* Adiciona um pouco de espaçamento nas laterais */
+  padding-left: 10px;   /* Adiciona um pouco de espaçamento nas laterais */
+  padding-right: 10px;  /* Adiciona um pouco de espaçamento nas laterais */
+
+}
+
+.copyright p {
+  margin: 0; /* Remove a margem padrão do parágrafo */
+  padding-bottom: 10px; /* Adiciona uma pequena margem inferior */
+  letter-spacing: 3px; /* Espaçamento entre as letras */
+  font-size: 10px; /* Tamanho da fonte */
+  background: radial-gradient(circle, #D2AC47, #D2AC47, #AE8625); /* Cria um gradiente radial como fundo */
+  -webkit-background-clip: text; /* Recorta o fundo ao formato do texto (para navegadores WebKit) */
+  -webkit-text-fill-color: transparent; /* Define a cor de preenchimento do texto como transparente */
+  display: inline-block; /* Define o texto como um bloco inline */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Adiciona uma sombra ao texto */
+
+}
+
+/* Estilo para o botão de WhatsApp fixo */
+.whatsapp-fixo {
+  position: fixed; /* Fixa o botão na tela mesmo ao rolar */
+  bottom: 20px; /* Distância de 20px da parte inferior da tela */
+  right: 20px; /* Distância de 20px da lateral direita da tela */
+  display: flex; /* Exibe os itens em linha (ícone e texto) */
+  align-items: center; /* Alinha verticalmente ao centro */
+  gap: 10px; /* Espaçamento entre o ícone e o texto */
+  background-color: rgb(215 182 48 / 2%); /* Cor de fundo com leve transparência */
+  color: black; /* Cor do texto */
+  padding-top: 10px; /* Adiciona preenchimento superior */
+  padding-bottom: 7px; /* Adiciona preenchimento inferior */
+  padding-left: 8px; /* Adiciona preenchimento esquerdo */
+  padding-right: 11px; /* Adiciona preenchimento direito */
+  border-radius: 30px; /* Bordas arredondadas (efeito de cápsula) */
+  box-shadow: 0 3px 1px rgb(153 130 17 / 48%); /* Sombra discreta */
+  text-decoration: none; /* Remove sublinhado de links */
+  font-weight: bold; /* Texto em negrito */
+  font-family: sans-serif; /* Fonte sem serifa */
+  z-index: 9999; /* Garante que o botão fique sobreposto a outros elementos */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transições suaves ao passar o mouse */
+}
+
+.whatsapp-fixo span {
+  font-size: 1rem; /* Tamanho da fonte do texto */
+  background: radial-gradient(circle, #fff09b, #d6a528); /* Degradê radial para o texto */
+  -webkit-background-clip: text; /* Aplica o degradê apenas ao texto */
+  -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente, exibindo o degradê */
+  display: inline-block; /* Permite aplicar estilos como largura/altura */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra no texto para dar destaque */
+}
+
+.whatsapp-fixo:hover {
+  transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
+  box-shadow: 0 6px 14px rgba(0,0,0,0.4); /* Aumenta a sombra ao passar o mouse */
+}
+
+.whatsapp-icon {
+  width: 30px; /* Largura do ícone do WhatsApp */
+  height: 30px; /* Altura do ícone do WhatsApp */
+}
+
+
+/* Responsivo para mobile */
+@media (max-width: 600px) {
+  .whatsapp-fixo span {
+    display: none; /* Oculta o texto em dispositivos móveis */
+  }
+
+  .whatsapp-fixo {
+    padding: 0.015px; /* Reduz o preenchimento interno */
+    border-radius: 50%; /* Faz o botão ser uma círculo */
+    right: 10px; /* Ajusta a distância horizontal */
+    width: 50px; /* Define a largura do botão */
+    height: 50px; /* Define a altura do botão */
+  }
+
+  .whatsapp-icon {
+  width: 50px; /* Define a largura do icone */
+  height: 50px; /* Define a altura do icone */
+}
 }
