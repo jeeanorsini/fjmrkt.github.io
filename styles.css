@@ -121,7 +121,7 @@ header {
   display: flex; /* Organiza os itens da lista horizontalmente */
   margin: 0; /* Remove as margens padrão da lista */
   padding: 0; /* Remove o preenchimento padrão da lista */
-  font-family: fantasy; /* Define a fonte como fantasia */
+  font-family: revert-layer; /* Define a fonte como revert-layer */
 
 }
 
@@ -442,7 +442,7 @@ header {
     text-decoration: none; /* Remove sublinhado */
     display: block;
     padding-bottom: 9px; /* Espaço inferior */
-    font-family: fantasy; /* Fonte decorativa */
+    font-family: revert-layer; /* Fonte decorativa */
   }
 
   /* Estilos para a seção Sobre em dispositivos móveis */
